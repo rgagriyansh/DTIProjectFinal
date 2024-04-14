@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Campaigns</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{{ url_for('static', filename='b-removebg-preview.png') }}" alt="Logo" width="80" height="60" class="d-inline-block align-text-mid">
+                Brand<span class="mate">Mate</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="#hero-section">Home</a>
+                    </li>
+                    {% if current_user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="/dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="/campaigns">Campaigns</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            {% if current_user.is_authenticated %}
+            <a href="/logout" class="btn btn-danger">Logout</a>
+            {% endif %}
+        </div>
+    </nav>
+</header>
+<body>
+    <div class="container mt-5">
+        <h1 class="mb-4">My Campaigns</h1>
+        {% if campaigns %}
+            <div class="list-group">
+                {% for campaign in campaigns %}
+                    <div class="list-group-item list-group-item-action flex-column align-items-start">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h5 class="mb-1">Title: {{ campaign.title }}</h5>
+                            <small>Category: {{ campaign.category }}</small>
+                        </div>
+                        <p class="mb-1">Age Range: {{ campaign.age_range }}</p>
+                        <p class="mb-1">Gender: {{ campaign.gender }}</p>
+                        <p class="mb-1">location: {{ campaign.location }}</p>
+                        <p class="mb-1">Minimum Followers: {{ campaign.followers }}</p>
+
+                        <small>Description: {{ campaign.description }}</small>
+                        <a href="/edit_campaign/{{ campaign.CID }}" class="btn btn-primary btn-sm mt-2">Edit</a>
+                        
+                        <!-- Fixed the url_for usage for view_campaign_applications -->
+                        <a href="{{ url_for('view_campaign_applications', campaign_id=campaign.CID) }}" class="btn btn-primary">View Applications</a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No campaigns found.</p>
+        {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

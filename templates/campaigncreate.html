@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Campaign</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="{{ url_for('static', filename='b-removebg-preview.png') }}" alt="Logo" width="80" height="60" class="d-inline-block align-text-mid">
+                    Brand<span class="mate">Mate</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="nav nav-pills">
+                        <li class="nav-item">
+                            <a class="nav-link mx-3" href="#hero-section">Home</a>
+                        </li>
+                        {% if current_user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link mx-3" href="/dashboard">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mx-3" href="/campaigns">Campaigns</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+                {% if current_user.is_authenticated %}
+                <a href="/logout" class="btn btn-danger">Logout</a>
+                {% endif %}
+            </div>
+        </nav>
+    </header>
+    <div class="container mt-5">
+        <h1 class="mb-4">Create Campaign</h1>
+        <form action="/create_campaign" method="POST">
+            <div class="form-group">
+                <label for="title">Campaign Title</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Enter campaign title" required>
+            </div>
+            
+            <div class="form-group">
+                <label>Category</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="categories[]" value="tech" id="tech">
+                    <label class="form-check-label" for="tech">Tech</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="category[]" value="Fashion" id="Fashion">
+                    <label class="form-check-label" for="Fashion">Fashion</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="category[]" value="food" id="food">
+                    <label class="form-check-label" for="food">Food</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="category[]" value="lifestyle" id="lifestyle">
+                    <label class="form-check-label" for="lifestyle">lifestyle</label>
+                </div>
+                <input type="text" name="location" placeholder="Location" required>
+                
+
+    <input type="number" name="followers" placeholder="Minimum Followers" required>
+    <input type="number" step="0.01" name="engagement_rate" placeholder="Engagement Rate (%)" required>
+    <input type="number" name="average_likes" placeholder="Average Likes" required>
+    <input type="number" name="average_comments" placeholder="Average Comments" required>
+
+            <div class="form-group">
+                <label>Age Range</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="age_range[]" value="18-21" id="18-21">
+                    <label class="form-check-label" for="18-21">18-21</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="age_range[]" value="22-25" id="22-25">
+                    <label class="form-check-label" for="22-25">22-25</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="age_range[]" value="26-30" id="26-30">
+                    <label class="form-check-label" for="26-30">26-30</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="age_range[]" value="30-40" id="30-40">
+                    <label class="form-check-label" for="30-40">30-40</label>
+                </div>
+                <!-- Add other age ranges in the same way -->
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender</label>
+                <select class="form-control" id="gender" name="gender">
+                    <option value="any">Any</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="payment_option">Payment Option</label>
+                <input type="text" class="form-control" id="payment_option" name="payment_option" placeholder="Enter payment option" required>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" name="description" rows="3" placeholder="Enter campaign description" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Create Campaign</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaigns</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="{{ url_for('static', filename='campaigns.js') }}"></script>
+
+    <style>
+        .notification {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: 125px;
+            background-color: #abf7b1;
+            color: #;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            right: 30px;
+            bottom: 30px;
+            font-size: 17px;
+        }
+        
+        .notification.show {
+            visibility: visible;
+            animation: fadeOut 6s;
+        }
+        
+        @keyframes fadeOut {
+            from {bottom: 30px; opacity: 1;} 
+            to {bottom: 60px; opacity: 0;}
+        }
+        </style>
+</head>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{{ url_for('static', filename='b-removebg-preview.png') }}" alt="Logo" width="80" height="60" class="d-inline-block align-text-mid">
+                Brand<span class="mate">Mate</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="#hero-section">Home</a>
+                    </li>
+                    {% if current_user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="/dashboard">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-3" href="/campaigns">Campaigns</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            {% if current_user.is_authenticated %}
+            <a href="/logout" class="btn btn-danger">Logout</a>
+            {% endif %}
+        </div>
+    </nav>
+</header>
+<body>
+    <div class="container mt-4">
+        <h2>Available Campaigns</h2>
+        {% for campaign in campaigns %}
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ campaign.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Category: {{ campaign.category }}</h6>
+                    <p class="card-text">{{ campaign.description }}</p>
+                    <p class="card-text">Age Range: {{ campaign.age_range }}</p>
+                    <p class="card-text">Gender: {{ campaign.gender }}</p>
+                    <p class="card-text">Payment Option: {{ campaign.payment_option }}</p>
+
+                    {% if current_user.is_authenticated and current_user.user_type == 'creator' %}
+                    
+        <!-- Only show this button to logged-in creators -->
+        <form action="{{ url_for('apply_campaign') }}" method="post">
+            <input type="hidden" name="campaign_id" value="{{ campaign.CID }}">
+            <button onclick="applyToCampaign(event, '{{ campaign.CID }}')" class="btn btn-success">Apply</button>
+        </form>
+        {% endif %}
+
+                </div>
+            </div>
+        {% else %}
+            <p>No campaigns available.</p>
+        {% endfor %}
+    </div>
+</body>
+</html>

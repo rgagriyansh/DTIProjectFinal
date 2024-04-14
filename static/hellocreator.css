@@ -1,0 +1,48 @@
+/* Basic styling for header */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #009688; /* Your brand color */
+    color: #fff; /* Text color */
+  }
+  
+  .greeting {
+    font-size: 18px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-left: 20px;
+  }
+  
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  nav ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Basic styling for main content */
+  main {
+    padding: 20px;
+  }
+  
+  .collaborations {
+    margin-bottom: 40px;
+  }
+  
+  .collaborations h2 {
+    font-size: 24px;
+    color: #333; /* Dark text color */
+  }
+  

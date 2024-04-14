@@ -1,0 +1,79 @@
+#about {
+    background-color: #f9f9f9;
+    padding: 50px 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .about-content {
+    text-align: center;
+  }
+  
+  .about-content h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .mission-vision {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+  }
+  
+  .values {
+    margin-bottom: 40px;
+  }
+  
+  .values h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .values ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .values ul li {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .team-member {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+    perspective: 1000px; /* Adding perspective for 3D effect */
+  }
+  
+  .team-member img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin-right: 20px;
+    transition: transform 0.5s; /* Adding transition for smooth transform */
+  }
+  
+  .team-member img:hover {
+    transform: rotateY(180deg); /* Applying 3D flip effect on hover */
+  }
+  
+  .member-details h4 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  .member-details p {
+    font-size: 16px;
+    color: #666;
+  }
+  

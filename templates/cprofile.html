@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Influencer Profile Creation</title>
+  <link rel="stylesheet" href="cprofile.css">
+</head>
+<body>
+  <div class="container">
+    <form id="profileForm" class="form">
+      <div id="phase1" class="phase">
+        <h2>Influencer Profile Creation</h2>
+        <label for="influencerName">Name:</label>
+        <input type="text" id="influencerName" name="influencerName" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <button type="button" id="nextPhase">Continue</button>
+      </div>
+      <div id="phase2" class="phase hidden">
+        <h2>Additional Details</h2>
+        <!-- Add additional fields for influencer profile creation here -->
+        <button type="button" id="submitProfile">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="influencerScript.js"></script>
+</body>
+</html>

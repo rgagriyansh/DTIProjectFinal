@@ -1,0 +1,19 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .form {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .phase {
+    display: block;
+  }
+  
+  .hidden {
+    display: none;
+  }
+  

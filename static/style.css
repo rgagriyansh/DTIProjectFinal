@@ -1,0 +1,455 @@
+* {
+    margin: 0;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: rgb(215,228,195);
+    background: linear-gradient(90deg, rgba(215,228,195,1) 0%, rgba(133,190,155,1) 50%, rgba(48,138,131,1) 100%);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+
+
+.navbar {
+    height: 70px;
+    background: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px; /* Add border-radius to create curved edges */
+    overflow:visible; /* Hide overflowing content to maintain curved edges */
+    margin-top: 20px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.pre{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.brand-logo {
+    display: flex;
+    align-items: center;
+}
+
+
+.brand-name {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 36px;
+    color: #540D6E;
+}
+
+
+.brand-name .mate {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: bold;
+    color: #009688;
+}
+
+
+.nav-links {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* Override conflicting styles for pills */
+.nav-pills .nav-link {
+    color: #000; /* Set the desired text color for pills */
+    background-color: transparent; /* Remove background color */
+    border-radius: 50px; /* Add border-radius to create rounded pills */
+    padding: 10px 20px; /* Add padding to the pills */
+}
+
+/* Adjust styles for active and hover states if needed */
+.nav-pills .nav-link.active, .nav-pills .nav-link:hover {
+    background-color: #007bff; /* Set the desired background color for active and hover states */
+    color: #fff; /* Set the desired text color for active and hover states */
+}
+
+
+.login-signup {
+    margin-left: 20px;
+}
+
+.login-signup {
+    display: flex;
+    align-items: center;
+}
+
+.login-signup select {
+    font-size: 16px;
+    padding: 10px;
+    border: 2px solid #009688; /* Add border with brand color */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #fff; /* White background */
+    color: #009688; /* Text color same as border color */
+    appearance: none; /* Remove default appearance */
+    cursor: pointer; /* Show pointer cursor */
+    outline: none; /* Remove outline */
+}
+
+.login-signup select:hover,
+.login-signup select:focus {
+    border-color: #005a4c; /* Darker border color on hover/focus */
+}
+
+.login-signup select option {
+    background-color: #fff; /* White background for options */
+    color: #333; /* Text color for options */
+}
+
+.login-signup button {
+    background-color: #009688; /* Brand color for button */
+    color: #fff; /* White text color */
+    font-size: 16px;
+    padding: 10px 20px; /* Padding for button */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Show pointer cursor */
+    transition: background-color 0.3s; /* Smooth transition on hover */
+}
+
+.login-signup button:hover {
+    background-color: #005a4c; /* Darker brand color on hover */
+}
+
+
+.hero-section {
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+.hero-text {
+    flex: 1; /* Take up remaining space */
+    padding: 50px 20px;
+}
+
+.hero-image {
+    padding-right: 20px; /* Adjust spacing between text and image */
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+}
+
+.hero-text h1 {
+    color: #EE4266;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 45px;
+    text-align: left; /* Align text to the left */
+}
+
+.hero-bullets {
+    padding: 0 20px;
+}
+
+.hero-bullets ul {
+    list-style-type: none; /* Remove default bullets */
+    padding: 0;
+    margin: 0;
+}
+
+.hero-bullets li {
+    margin-bottom: 10px; /* Add space between bullet points */
+}
+
+.hero-buttons {
+    padding-top: 20px; /* Add space between bullets and buttons */
+    text-align: left; /* Align buttons to the left */
+}
+
+.join-creator-btn, .join-brand-btn {
+    padding: 15px 40px; /* Adjust padding to increase button size */
+    margin-right: 20px; /* Add margin between buttons */
+    font-size: 18px;
+    background-color: #F1FAEE; /* Change background color to match your design */
+    border: none;
+    border-radius: 8px; /* Round the corners */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Add smooth transition effect */
+}
+
+.join-brand-btn {
+    margin-right: 0; /* Remove margin from last button */
+}
+
+.join-creator-btn:hover, .join-brand-btn:hover {
+    background-color: #0c6cfb; /* Change background color on hover */
+}
+
+
+
+.brands-section {
+    padding: 50px 20px;
+}
+
+.brands-section h2 {
+    font-size: 24px;
+    color: #009688;
+    margin-bottom: 20px;
+}
+
+
+
+.brand:last-child {
+    margin-right: 0;
+}
+
+
+.brand {
+    width: calc(20% - 20px);
+    height: 150px; /* Set a fixed height for consistent sizing */
+    margin-right: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.brand img {
+    width: 100%;
+    height: auto;
+    max-height: 90%; /* Ensure images don't overflow */
+    border-radius: 10px;
+    object-fit: cover; /* Maintain aspect ratio and cover container */
+}
+
+.why-brandmate-section {
+    padding: 50px 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+
+.benefits-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.benefit {
+    width: 300px;
+    margin-bottom: 30px;
+}
+
+.benefit img {
+    width: 100%;
+    height: auto;
+}
+
+.benefit .description {
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.benefit h3 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.benefit p {
+    font-size: 16px;
+    color: #666;
+}
+
+.team-section {
+    padding: 50px 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif}
+
+.team-section h2 {
+    font-size: 24px;
+    color: #009688;
+    margin-bottom: 20px;
+}
+    
+
+.team-members {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    width: 45%; /* Adjust width as needed */
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.team-member img {
+    width: 100%;
+    max-width: 200px; /* Adjust max-width as needed */
+    height: 100%;
+    max-height: 200px;
+    border-radius: 50%; /* Makes the image round */
+    margin-bottom: 20px;
+    object-fit: cover;
+}
+
+.team-member h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.team-member p {
+    font-size: 16px;
+    color: #666;
+}
+
+
+
+
+
+.brand p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+}
+bloggers-section {
+    padding: 50px 20px;
+}
+
+.bloggers-section h2 {
+    font-size: 24px;
+    color: #009688;
+    margin-bottom: 20px;
+}
+
+
+
+.brand-list, .blogger-list {
+    display: flex;
+    overflow-x: hidden; /* Hide overflowing content */
+}
+
+.brand, .blogger {
+    flex-shrink: 0;
+    margin-right: 20px;
+    animation: moveLoop 10s linear infinite; /* Updated animation duration */
+}
+
+@keyframes moveLoop {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
+.blogger:last-child {
+    margin-right: 0;
+}
+
+.blogger {
+    width: calc(20% - 20px);
+    height: 150px; /* Set a fixed height for consistent sizing */
+    margin-right: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.blogger img {
+    width: 100%;
+    height: auto;
+    max-height: 90%; /* Ensure images don't overflow */
+    border-radius: 10px;
+    object-fit: cover; /* Maintain aspect ratio and cover container */
+}
+
+.blogger p {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #333;
+}
+.faq-section {
+    padding: 50px 20px;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+.footer-section {
+    background-color: #fff;
+    color: #333;
+    padding: 50px 20px;
+}
+
+
+.faq-item {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ccc; /* Add a border to separate FAQ items */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    transition: all 0.3s ease; /* Add smooth transition effect */
+}
+
+.faq-item:hover {
+    background-color: #A1D6E2; /* Change background color on hover */
+}
+
+.faq-item h3 {
+    color: #009688;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.faq-item p {
+    font-size: 16px;
+    line-height: 1.6;
+    display: none; /* Hide answer by default */
+}
+
+.faq-item.active p {
+    display: block; /* Show answer when active */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 30px 0; /* Added padding for better spacing */
+    background-color: #fff; /* Added background color */
+    color: #333; /* Changed text color to white */
+}
+
+.footer-column {
+    flex: 1;
+    padding: 0 20px; /* Added padding for better spacing */
+}
+
+.footer-column h3 {
+    font-size: 24px; /* Increased font size for section headings */
+    margin-bottom: 20px; /* Increased margin bottom for section headings */
+    color: #fff; /* Changed text color to white */
+}
+
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.footer-column ul li a {
+    color: #333; /* Changed link color to light gray */
+    text-decoration: none;
+    transition: color 0.3s; /* Added smooth transition for link color */
+}
+
+.footer-column ul li a:hover {
+    color: #fff; /* Changed link color on hover to white */
+}

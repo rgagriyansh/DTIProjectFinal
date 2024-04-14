@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Campaign</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+    <h2>Edit Campaign</h2>
+    <form action="{{ url_for('edit_campaign', CID=campaign.CID) }}" method="POST">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title" value="{{ campaign.title }}" required>
+        </div>
+        <div class="form-group">
+            <label for="category">Category</label>
+            <input type="text" class="form-control" id="category" name="category" value="{{ campaign.category }}" required>
+        </div>
+        <div class="form-group">
+            <label for="age_range">Age Range</label>
+            <input type="text" class="form-control" id="age_range" name="age_range" value="{{ campaign.age_range }}" required>
+        </div>
+        <div class="form-group">
+            <label for="gender">Gender</label>
+            <select class="form-control" id="gender" name="gender">
+                <option value="Male" {{ 'selected' if campaign.gender == 'Male' else '' }}>Male</option>
+                <option value="Female" {{ 'selected' if campaign.gender == 'Female' else '' }}>Female</option>
+                <option value="Other" {{ 'selected' if campaign.gender == 'Other' else '' }}>Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="payment_option">Payment Option</label>
+            <input type="text" class="form-control" id="payment_option" name="payment_option" value="{{ campaign.payment_option }}" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" name="description" rows="3" required>{{ campaign.description }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Update Campaign</button>
+    </form>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
